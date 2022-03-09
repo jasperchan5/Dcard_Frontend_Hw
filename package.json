@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start": "cd frontend && npm start"
+  },
+  "dependencies": {
+    "curl": "^0.1.4",
+    "octonode": "^0.10.2"
+  }
+}

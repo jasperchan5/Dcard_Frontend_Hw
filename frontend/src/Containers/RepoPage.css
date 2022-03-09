@@ -1,0 +1,13 @@
+.repo_page_backButton{
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    margin-left: 5%;
+    margin-top: 10%;
+}
+.repo_page_body{
+    width: 60%;
+    height: 400px;
+    margin-left: 20%;
+    border: 1px black solid;
+}

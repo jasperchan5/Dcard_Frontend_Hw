@@ -1,0 +1,53 @@
+.repo_frame{
+    width: 75%;
+    border: 1px solid rgba(1,1,1,0.5);
+    margin-left: 12.5%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-radius: 20px;
+    animation: InfoFadeInAnimation 1.5s forwards;
+    animation-fill-mode: forwards;
+}
+.repo_info{
+    width: 70%;
+    margin-left: 15%;
+    height: 50px;
+    background-color: hsl(203, 100%, 97%);
+    box-shadow: 1px 1px 1px rgba(1,1,1,0.5);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    position: static;
+}
+.repo_info:hover{
+    animation: InfoHoverAnimation 0.4s;
+    animation-fill-mode: forwards;
+    background-color: rgb(167, 203, 228);
+}
+.repo_name{
+    font-size: 0.5cm;
+    color: rgb(47, 47, 66);
+    text-align: center;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+@keyframes InfoFadeInAnimation{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes InfoHoverAnimation {
+    0%{
+        width: 70%;
+        height: 50px; 
+        margin-left: 15%;
+    }
+    100%{
+        width: 75%;
+        height: 55px;
+        margin-left: 12.5%;
+    }
+}
