@@ -1,0 +1,11 @@
+.footer_divide_line{
+    width: 100%;
+    height: 1.5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: rgb(127, 127, 146);
+}
+.footer_creator_text{
+    font-size: 0.5cm;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

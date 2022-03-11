@@ -1,22 +1,29 @@
 import React, { useContext, useState } from "react"
-const RepoNameContext = React.createContext({repoName: ""});
+const RepoNameContext = React.createContext({
+    repoName: "",
+    AddRepoName: () => {},
+    ClearRepoName: () => {}
+});
 
-const RepoUtils = () => {
+const RepoNameProvider = (props) => {
     const [repoName,setRepoName] = useState("");
-    const RepoNameProvider = (props) => {
-        return(
-            <RepoNameContext.Provider value={repoName} {...props}></RepoNameContext.Provider>
-        )
+    const AddRepoName = (input) => {
+        setRepoName(input);
     }
-    const UseRepoName = () => {
-        return useContext(RepoNameContext);
-    }
-
     const ClearRepoName = () => {
         setRepoName("");
     }
-
-    return { RepoNameProvider, UseRepoName, ClearRepoName, repoName, setRepoName };
+    return(
+        <RepoNameContext.Provider value={{
+            repoName,
+            AddRepoName,
+            ClearRepoName
+        }} {...props}></RepoNameContext.Provider>
+    )
 }
 
-export default RepoUtils;
+const UseRepoName = () => {
+    return useContext(RepoNameContext);
+}
+
+export { RepoNameProvider, UseRepoName };

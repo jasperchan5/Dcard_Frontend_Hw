@@ -1,23 +1,22 @@
-import './App.css';
 import Content from './Containers/Content.js';
 import Header from './Containers/Header.js';
 import RepoPage from './Containers/RepoPage.js';
 import React, { useState } from 'react';
-import UserUtils from './Hooks/UseUserName.js';
-import RepoUtils from './Hooks/UseRepoName';
-
+import { UserNameProvider } from './Hooks/UseUserName.js';
+import { RepoNameProvider } from './Hooks/UseRepoName';
+import Footer from './Containers/Footer.js';
 
 function App() {
-  const { UserNameProvider, userName, setUserName } = UserUtils();
-  const { RepoNameProvider, repoName, setRepoName } = RepoUtils();
   const [list,setList] = useState(true);
+  
   return (
-    <UserNameProvider value={userName}>
-      <RepoNameProvider value={repoName}>
-        <Header></Header>
+    <UserNameProvider>
+      <RepoNameProvider>
+        <Header setList={setList}></Header>
         {list ? 
-        <Content name={userName} setRepoName={setRepoName} setUserName={setUserName} setList={setList}></Content> :
-        <RepoPage repoName={repoName} setRepoName={setRepoName} setList={setList}></RepoPage>}
+        <Content setList={setList}></Content> :
+        <RepoPage setList={setList}></RepoPage>}
+        <Footer></Footer>
       </RepoNameProvider>
     </UserNameProvider>
   );

@@ -3,11 +3,64 @@
     width: 25px;
     height: 25px;
     margin-left: 5%;
-    margin-top: 10%;
+    margin: auto;
+}
+.repo_page_name{
+    font-size: 0.75cm;
+    color: rgb(127, 127, 146);
+    margin: auto;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.repo_page_stargazers_count{
+    font-size: 0.75cm;
+    color: rgb(132, 143, 101);
+    text-align: center;
+    margin: auto;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .repo_page_body{
     width: 60%;
     height: 400px;
     margin-left: 20%;
+    margin-top: 2.5%;
     border: 1px black solid;
+    animation: InfoFadeInAnimation 1.5s forwards;
+}
+.repo_page_divide_line{
+    width: 100%;
+    height: 1.5px;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.repo_page_description_text{
+    font-size: 0.6cm;
+    color: rgba(0, 0, 0, 0.5);
+    margin-left: 2.5%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.repo_page_description_inner{
+    width: 80%;
+    margin-left: 10%;
+    height: 75%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 0.4cm;
+    color: rgba(0, 0, 0, 0.5);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.repo_page_hyperlink{
+    font-size: 0.4cm;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    color: #5caffd;
+}
+@keyframes InfoFadeInAnimation{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }

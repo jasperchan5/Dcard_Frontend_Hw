@@ -1,22 +1,34 @@
 import React, { useContext, useState } from "react"
-const UserNameContext = React.createContext({userName: ""});
+const UserNameContext = React.createContext({
+    userName: "", 
+    AddUserName: () => {},
+    ClearUserName: () => {},
+    PrintUserName: () => {}
+});
 
-const UserUtils = () => {
+const UserNameProvider = (props) => {
     const [userName,setUserName] = useState("");
-    const UserNameProvider = (props) => {
-        return(
-            <UserNameContext.Provider value={userName} {...props}></UserNameContext.Provider>
-        )
+    const AddUserName = (input) => {
+        setUserName(input);
     }
-    const UseUserName = () => {
-        return useContext(UserNameContext);
-    }
-
     const ClearUserName = () => {
         setUserName("");
     }
-
-    return { UserNameProvider, UseUserName, ClearUserName, userName, setUserName };
+    const PrintUserName = () => {
+        console.log(userName);
+    }
+    return(
+        <UserNameContext.Provider value={{
+            userName,
+            AddUserName,
+            ClearUserName,
+            PrintUserName
+        }} {...props}></UserNameContext.Provider>
+    )
 }
 
-export default UserUtils;
+const UseUserName = () => {
+    return useContext(UserNameContext);
+}
+
+export { UserNameProvider, UseUserName};
