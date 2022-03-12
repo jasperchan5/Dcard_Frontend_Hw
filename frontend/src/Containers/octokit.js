@@ -1,7 +1,9 @@
 import { Octokit } from "@octokit/core";
-
+import dotenv from 'dotenv-defaults';
+dotenv.config();
+const auth = process.env.auth;
 const octokit = new Octokit({
-    auth: "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",
+    auth: auth,
 });
 
 export default octokit;
