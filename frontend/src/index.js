@@ -5,15 +5,23 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import App from './App.js';
-import RepoPage from './Containers/RepoPage.js';
+import App from './Containers/App.js';
 import reportWebVitals from './reportWebVitals.js';
+import { UserNameProvider, RepoNameProvider, StatusProvider } from './Hooks'
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />}></Route>
+        <Route path="/" element={
+          <UserNameProvider>
+            <RepoNameProvider>
+              <StatusProvider>
+                <App />
+              </StatusProvider>
+            </RepoNameProvider>
+          </UserNameProvider>
+        }/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

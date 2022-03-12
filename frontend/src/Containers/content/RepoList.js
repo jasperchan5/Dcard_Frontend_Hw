@@ -1,39 +1,43 @@
 import React, { useState, useEffect } from "react";
-import './Content.css';
-import { UseUserName } from '../Hooks/UseUserName';
-import { UseRepoName } from "../Hooks/UseRepoName";
-import { Octokit } from "@octokit/core";
-import { Link } from "react-router-dom";
+import '../css/RepoList.css';
 
-const octokit = new Octokit({
-    auth: "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",
-});
+import { UseRepoName, UseUserName, UseStatus } from "../../Hooks";
+import octokit from "../octokit";
 
-export default ({ setList }) => {
+export default () => {
     const { userName } = UseUserName();
-    const { repoName, AddRepoName } = UseRepoName();
-    const [totalDataCnt,setTotalDataCnt] = useState(10);
+    const { AddRepoName } = UseRepoName();
+    const { DisableShowList, EnableUserName, repoCnt, UpdateRepoCnt } = UseStatus();
+    const [dataCnt,setDataCnt] = useState(10);
     const [data,setData] = useState([]);
 
-    // Use an useEffect() to load 10 more repos when userName or total number of repos changes.
+    // Use useEffect() to load 10 more repos when userName or total number of repos changes.
     useEffect(async() => {
         let tempData = [];
         try{
-            const repoList = await octokit.request(`GET /users/${userName}/repos`);
+            const repoList = await octokit.request(`GET /users/${userName}/repos?per_page=100`);
+            if(repoCnt === 0){
+                UpdateRepoCnt(repoList.data.length);
+            }
             repoList.data.forEach((e,i)=>{
-                if(i < totalDataCnt){
+                if(i < dataCnt){
                     tempData.push([e.name,e.stargazers_count]);
                 }
             })
         }
-        catch(e){}
+        catch(e){
+            console.log(e);
+        }
         setData(tempData);
-    }, [userName,totalDataCnt]);
+        if(tempData.length != 0){
+            EnableUserName();
+        }
+    }, [userName,dataCnt]);
     
     // Add 10 new data when scrolling to the bottom
     window.onscroll = () => {
         if (window.scrollY > Math.abs(document.body.offsetHeight - window.outerHeight) + 80) {
-            setTotalDataCnt(totalDataCnt+10);
+            setDataCnt(dataCnt+10);
         }
     }
 
@@ -41,22 +45,21 @@ export default ({ setList }) => {
     <>
         {   
         <>
-            <div className="repo_title">Repository list</div>
+            <div style={{display: "flex"}}>
+                <div style={{width: "50%", display: "flex"}}>
+                    <div className="repo_title">Repositories list</div>
+                </div>
+                <div style={{width: "50%", display: "flex"}}>
+                    <div className="repo_total_count_text">{repoCnt} repositories in total.</div>
+                </div>
+            </div>
             <div className="repo_divide_line"></div>
-            <div style={{height: `${window.innerHeight}`}}>
-                {data.length === 0 ? 
-                <>
-                    <div className="repo_noData">
-                        Repositories not found. Please enter a valid username.
-                    </div>
-                    <div className="repo_noData_image">
-                        <img src="https://img.icons8.com/windows/96/000000/no-data-availible.png"/>
-                    </div>
-                </> : 
+            <div style={{width: "100%", height: `${window.innerHeight}`}}>
+                {
                 data.map((e,i) => {
                     return(
                         <div key={"repo "+i} className="repo_info" onClick={()=>{
-                            setList(false);
+                            DisableShowList();
                             AddRepoName(e[0]);
                             }}>
                             <div style={{display: "flex"}}>

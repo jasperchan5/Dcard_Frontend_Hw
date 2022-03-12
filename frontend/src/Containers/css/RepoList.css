@@ -3,6 +3,11 @@
     margin-top: 15px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.repo_total_count_text{
+    font-size: 0.75cm;
+    margin: auto;
+    font-family:'Courier New', Courier, monospace;
+}
 .repo_divide_line{
     width: 100%;
     height: 1.5px;
@@ -22,6 +27,7 @@
     height: 64px;
     margin: auto;
     margin-top: 15px;
+    margin-bottom: 45px;
 }
 .repo_frame{
     width: 75%;

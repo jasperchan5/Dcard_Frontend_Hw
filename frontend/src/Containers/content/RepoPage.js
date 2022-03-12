@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from "react";
-import "./RepoPage.css";
-import { UseUserName } from "../Hooks/UseUserName";
-import { UseRepoName } from "../Hooks/UseRepoName";
-import { Octokit } from "@octokit/core";
-import backArrow from './elements/left-arrow.png';
+import "../css/RepoPage.css";
+import { UseRepoName, UseUserName, UseStatus } from "../../Hooks";
+import backArrow from '../elements/left-arrow.png';
 
-const octokit = new Octokit({
-    auth: "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",
-});
+import octokit from "../octokit";
 
-export default ({ setList }) => {
+export default () => {
     const [data,setData] = useState([]);
     const [link,setLink] = useState("");
     const { userName } = UseUserName();
     const { repoName } = UseRepoName();
+    const { EnableShowList } = UseStatus();
 
     useEffect(async() => {
         const repoInfo = await octokit.request(`GET /repos/${userName}/${repoName}`);
@@ -31,7 +28,7 @@ export default ({ setList }) => {
             <div className="repo_page_body">
                 <div style={{display: "flex"}}>
                     <div style={{width: "12.5%", display: "flex"}}>
-                        <img src={backArrow} onClick={()=>setList(true)} className="repo_page_backButton"></img>
+                        <img src={backArrow} onClick={()=>EnableShowList()} className="repo_page_backButton"></img>
                     </div>
                     <div style={{width: "62.5%", display: "flex"}}>
                         <div className="repo_page_name">{data[0]}</div>   
