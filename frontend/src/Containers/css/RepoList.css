@@ -1,12 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Hubballi&display=swap');
 .repo_title{
     font-size: 1cm;
     margin-top: 15px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Hubballi', cursive;
 }
 .repo_total_count_text{
-    font-size: 0.75cm;
-    margin: auto;
-    font-family:'Courier New', Courier, monospace;
+    font-size: 1cm;
+    margin-top: 15px;
+    margin-left: 40%;
+    font-family: 'Hubballi', cursive;
 }
 .repo_divide_line{
     width: 100%;
@@ -14,20 +16,6 @@
     margin-top: 15px;
     margin-bottom: 15px;
     background-color: rgb(127, 127, 146);
-}
-.repo_noData{
-    font-size: 0.8cm;
-    margin: auto;
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 900;
-}
-.repo_noData_image{
-    width: 64px;
-    height: 64px;
-    margin: auto;
-    margin-top: 15px;
-    margin-bottom: 45px;
 }
 .repo_frame{
     width: 75%;
@@ -37,19 +25,12 @@
     margin-bottom: 25px;
     border-radius: 20px;
     animation: InfoFadeInAnimation 1.5s forwards;
-    animation-fill-mode: forwards;
-}
-.repo_number{
-    font-size: 0.5cm;
-    color: rgb(132, 143, 101);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 900;
 }
 .repo_info{
     width: 70%;
     margin-left: 15%;
     height: 50px;
-    background-color: hsl(203, 100%, 97%);
+    background-color: hsl(204, 66%, 89%);
     box-shadow: 1px 1px 1px rgba(1,1,1,0.5);
     margin-top: 5px;
     margin-bottom: 5px;
@@ -57,21 +38,46 @@
 }
 .repo_info:hover{
     animation: InfoHoverAnimation 0.4s forwards;
-    background-color: rgb(167, 203, 228);
+    background-color: rgb(217, 246, 255);
     cursor: pointer;
 }
+.repo_number{
+    font-size: 0.8cm;
+    color: rgb(65, 65, 65);
+    font-family: 'Hubballi', cursive;
+    font-weight: 900;
+}
 .repo_name{
-    font-size: 0.6cm;
-    color: rgb(127, 127, 146);
+    font-size: 0.8cm;
+    color: rgb(65, 65, 65);
     margin-left: 10%;
     font-weight: 900;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Hubballi', cursive;
 }
 .repo_stargazers_count{
-    font-size: 0.5cm;
-    color: rgb(132, 143, 101);
+    font-size: 0.8cm;
+    color: rgb(65, 65, 65);
+    font-weight: 900;
     text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Hubballi', cursive;
+}
+.repo_error_body{
+    width: 100%;
+    height: 300px;
+}
+.repo_error_text{
+    font-size: 1.2cm;
+    color: rgb(65, 65, 65);
+    font-family: 'Hubballi', cursive;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+.repo_error_img{
+    width: 128px;
+    height: 128px;
+    margin: auto;
 }
 
 @keyframes InfoFadeInAnimation{

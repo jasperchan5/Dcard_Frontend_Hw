@@ -1,28 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Hubballi&display=swap');
 .input_text{
     font-size: 0.8cm;
     margin: auto;
     text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Hubballi', cursive;
     font-weight: 900;
-}
-.input_box_frame{
-    width: 100%;
-    height: 50px;
-    background-color: rgb(197, 197, 197);
 }
 .input_box_inner{
     width: 80%;
-    height: 40px;
+    height: 80px;
     border: 1px rgba(1,1,1,0.2) solid;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Hubballi', cursive;
     margin-left: 5%;
-    font-size: 0.5cm;
+    font-size: 0.8cm;
     vertical-align: middle;
+    border-radius: 5px;
+    text-align: center;
 }
 .input_box_button{
     width: 10%;
-    height: 40px;
+    height: 80px;
     cursor: pointer;
-    background-color: rgb(215, 252, 255);
-    vertical-align: middle;
+    background-color: rgba(241, 248, 255, 0.568);
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px rgb(68, 93, 129);
+}
+.input_box_button_img{
+    margin-top: 10px;
+    margin-left: 20%;
 }

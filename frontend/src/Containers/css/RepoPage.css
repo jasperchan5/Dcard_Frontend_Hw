@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Hubballi&display=swap');
 .repo_page_backButton{
     cursor: pointer;
     width: 25px;
@@ -7,24 +8,22 @@
 }
 .repo_page_name{
     font-size: 0.75cm;
-    color: rgb(127, 127, 146);
+    color: rgb(49, 49, 65);
     margin: auto;
     text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Hubballi', cursive;
 }
 .repo_page_stargazers_count{
     font-size: 0.75cm;
     color: rgb(132, 143, 101);
     text-align: center;
     margin: auto;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Hubballi', cursive;
 }
 .repo_page_body{
-    width: 60%;
+    width: 100%;
     height: 400px;
-    margin-left: 20%;
     margin-top: 2.5%;
-    border: 1px black solid;
     animation: InfoFadeInAnimation 1.5s forwards;
 }
 .repo_page_divide_line{
@@ -35,10 +34,11 @@
     margin-bottom: 5px;
 }
 .repo_page_description_text{
-    font-size: 0.6cm;
-    color: rgba(0, 0, 0, 0.5);
+    font-size: 1cm;
+    color: rgba(0, 0, 0);
     margin-left: 2.5%;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 15px;
+    font-family: 'Hubballi', cursive;
 }
 .repo_page_description_inner{
     width: 80%;
@@ -46,13 +46,13 @@
     height: 75%;
     margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 0.4cm;
+    font-size: 0.7cm;
     color: rgba(0, 0, 0, 0.5);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Hubballi', cursive;
 }
 .repo_page_hyperlink{
-    font-size: 0.4cm;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 0.7cm;
+    font-family: 'Hubballi', cursive;
     text-align: center;
     color: #5caffd;
 }

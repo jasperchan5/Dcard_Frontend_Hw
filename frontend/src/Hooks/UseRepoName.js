@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useState, useEffect } from "react"
 const RepoNameContext = React.createContext({
     repoName: "",
     AddRepoName: () => {},
@@ -7,11 +7,18 @@ const RepoNameContext = React.createContext({
 
 const RepoNameProvider = (props) => {
     const [repoName,setRepoName] = useState("");
+
+    useEffect(() => {
+        setRepoName(localStorage.getItem("repoName"));
+    }, []);
+
     const AddRepoName = (input) => {
         setRepoName(input);
+        localStorage.setItem("repoName", input);
     }
     const ClearRepoName = () => {
         setRepoName("");
+        localStorage.removeItem("repoName");
     }
     return(
         <RepoNameContext.Provider value={{

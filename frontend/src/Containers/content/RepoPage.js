@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../css/RepoPage.css";
 import { UseRepoName, UseUserName, UseStatus } from "../../Hooks";
 import backArrow from '../elements/left-arrow.png';
-
+import { NavLink } from "react-router-dom";
 import octokit from "../octokit";
 
 export default () => {
@@ -28,12 +28,14 @@ export default () => {
             <div className="repo_page_body">
                 <div style={{display: "flex"}}>
                     <div style={{width: "12.5%", display: "flex"}}>
-                        <img src={backArrow} onClick={()=>EnableShowList()} className="repo_page_backButton"></img>
+                        <NavLink to={`/users/${userName}/repos`}>
+                            <img src={backArrow} onClick={()=>EnableShowList()} className="repo_page_backButton"></img>
+                        </NavLink>
                     </div>
-                    <div style={{width: "62.5%", display: "flex"}}>
+                    <div style={{width: "75%", display: "flex"}}>
                         <div className="repo_page_name">{data[0]}</div>   
                     </div>
-                    <div style={{width: "25%", display: "flex"}}>
+                    <div style={{width: "12.5%", display: "flex"}}>
                         <div style={{display: "flex"}}>
                             <div style={{display: "flex", width: "75%"}}>
                                 <img src="https://img.icons8.com/windows/32/000000/star--v2.png"/>
@@ -50,12 +52,14 @@ export default () => {
                 <div>
                     <div className="repo_page_description_text">Description: </div>
                     <div className="repo_page_description_inner">
-                        {data[1] === null ? <li>No description.</li> : <li>{data[1]}</li>}
+                        {data[1] === null ? <div>No description.</div> : <div>{data[1]}</div>}
                     </div>
                 </div>
-                <div className="repo_page_divide_line"></div>
                 <div>
-                    <a className="repo_page_hyperlink" href={link}>{link}</a>
+                    <div className="repo_page_description_text">Link: </div>
+                    <div className="repo_page_description_inner">
+                        <a className="repo_page_hyperlink" href={link}>{link}</a>
+                    </div>
                 </div>
             </div>
         </>
