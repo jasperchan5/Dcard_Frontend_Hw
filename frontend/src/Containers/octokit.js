@@ -1,7 +1,8 @@
 import { Octokit } from "@octokit/core";
+import AUTH from "./token";
 
 const octokit = new Octokit({
-    auth: "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",
+    auth: AUTH
 });
 
 export default octokit;
