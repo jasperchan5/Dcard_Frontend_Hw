@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { UseRepoName, UseUserName, UseStatus } from "../../Hooks";
-import { NavLink } from "react-router-dom";
+import { UseRepoName, UseUserName } from "../../Hooks";
 import Notification from '../Notification'; 
 import '../css/UserNameInput.css';
 import enter from '../elements/enter.png';
@@ -8,7 +7,7 @@ import enter from '../elements/enter.png';
 export default () => {
     const { AddUserName } = UseUserName();
     const { ClearRepoName } = UseRepoName();
-    const { EnableShowList } = UseStatus();
+
     const { showWarning } = Notification()
     const [inputName,setInputName] = useState("");
     
@@ -31,18 +30,15 @@ export default () => {
                             <img src={enter}></img>
                         </div>
                         :
-                        <NavLink to={`users/${inputName}/repos`} onClick={
-                            () => {
-                                AddUserName(inputName.toLowerCase());
-                                EnableShowList();
-                                ClearRepoName();
-                                setInputName("");
-                            }
-                        } style={{ textDecoration: 'none', color: 'black' }}>
-                            <div className="input_box_button_img">
-                                <img src={enter}></img>
-                            </div>
-                        </NavLink>
+                        <div className="input_box_button_img" onClick={
+                        () => {
+                            AddUserName(inputName.toLowerCase());
+                            ClearRepoName();
+                            setInputName("");
+                            window.location.href = `users/${inputName}/repos`;
+                        }}>
+                            <img src={enter}></img>
+                        </div>
                     }
                     
                 </div>

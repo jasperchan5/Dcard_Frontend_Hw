@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import '../css/RepoList.css';
 
-import { UseRepoName, UseUserName, UseStatus } from "../../Hooks";
+import { UseRepoName, UseUserName, UseRepoCnt } from "../../Hooks";
 import octokit from "../octokit";
 import error_404 from '../elements/error-404.png';
 import { NavLink } from "react-router-dom";
@@ -9,7 +9,7 @@ import { NavLink } from "react-router-dom";
 export default () => {
     const { userName } = UseUserName();
     const { AddRepoName } = UseRepoName();
-    const { DisableShowList, EnableUserName, repoCnt, UpdateRepoCnt } = UseStatus();
+    const { repoCnt, UpdateRepoCnt } = UseRepoCnt();
     const [dataCnt,setDataCnt] = useState(10);
     const [data,setData] = useState([]);
 
@@ -18,7 +18,7 @@ export default () => {
         let tempData = [];
         try{
             const repoList = await octokit.request(`GET /users/${userName}/repos?per_page=100`);
-            if(repoCnt === 0){
+            if(repoCnt === 0 || repoCnt === null){
                 UpdateRepoCnt(repoList.data.length);
             }
             repoList.data.forEach((e,i)=>{
@@ -33,9 +33,6 @@ export default () => {
             tempData.push(e.toString());
         }
         setData(tempData);
-        if(tempData.length != 0){
-            EnableUserName();
-        }
     }, [userName,dataCnt]);
     
     // Add 10 new data when scrolling to the bottom
@@ -79,7 +76,7 @@ export default () => {
                     data.map((e,i) => {
                     return(
                         <div key={"repo "+i} className="repo_info" onClick={()=>{
-                            DisableShowList();
+                            console.log("Current repo:",e[0]);
                             AddRepoName(e[0]);
                             }}>
                             <NavLink to={`/users/${userName}/repos/${e[0]}`} style={{textDecoration: 'none'}}>

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../css/RepoPage.css";
-import { UseRepoName, UseUserName, UseStatus } from "../../Hooks";
+import { UseRepoName, UseUserName, UseRepoCnt } from "../../Hooks";
 import backArrow from '../elements/left-arrow.png';
-import { NavLink } from "react-router-dom";
 import octokit from "../octokit";
 
 export default () => {
@@ -10,7 +9,6 @@ export default () => {
     const [link,setLink] = useState("");
     const { userName } = UseUserName();
     const { repoName } = UseRepoName();
-    const { EnableShowList } = UseStatus();
 
     useEffect(async() => {
         const repoInfo = await octokit.request(`GET /repos/${userName}/${repoName}`);
@@ -28,9 +26,7 @@ export default () => {
             <div className="repo_page_body">
                 <div style={{display: "flex"}}>
                     <div style={{width: "12.5%", display: "flex"}}>
-                        <NavLink to={`/users/${userName}/repos`}>
-                            <img src={backArrow} onClick={()=>EnableShowList()} className="repo_page_backButton"></img>
-                        </NavLink>
+                        <img src={backArrow} onClick={()=>window.location.href=`/users/${userName}/repos`}  className="repo_page_backButton"></img>
                     </div>
                     <div style={{width: "75%", display: "flex"}}>
                         <div className="repo_page_name">{data[0]}</div>   

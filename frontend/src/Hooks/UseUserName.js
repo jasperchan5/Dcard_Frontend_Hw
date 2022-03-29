@@ -20,7 +20,7 @@ const UserNameProvider = (props) => {
         localStorage.removeItem("userName");
     }
     const PrintUserName = () => {
-        console.log(userName);
+        // console.log(userName);
     }
     return(
         <UserNameContext.Provider value={{

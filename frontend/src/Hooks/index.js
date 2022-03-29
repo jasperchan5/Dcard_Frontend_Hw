@@ -1,4 +1,4 @@
 export * from './UseRepoName';
-export * from './UseStatus';
+export * from './UseRepoCnt';
 export * from './UseUserName';
 
