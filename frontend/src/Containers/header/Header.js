@@ -1,11 +1,13 @@
 import React from "react";
 import '../css/Header.css'
-import { UseUserName, UseRepoCnt, UseRepoName } from "../../Hooks";
+import { UseUserName, UseRepoCnt, UseRepoName, UseErrorMessage } from "../../Hooks";
 import { NavLink } from "react-router-dom";
+
 export default () => {
     const { userName, ClearUserName } = UseUserName();
-    const { ClearRepoName } = UseRepoName();
-    const { UpdateRepoCnt } = UseRepoCnt();
+    const { repoName, ClearRepoName } = UseRepoName();
+    const { repoCnt, UpdateRepoCnt } = UseRepoCnt();
+    const { AddMessage } = UseErrorMessage();
     return(
         <>
             <div className="header_body">
@@ -18,10 +20,16 @@ export default () => {
                 <div style={{width: "25%"}}></div>
                 <div style={{width: "25%"}}>
                     <div onClick={() => {
-                        ClearUserName();
-                        ClearRepoName();
-                        UpdateRepoCnt(0);
-                        localStorage.clear();
+                        if(userName !== "" && repoName !== "" && repoCnt !== 0){
+                            ClearUserName();
+                            ClearRepoName();
+                            UpdateRepoCnt(0);
+                            localStorage.clear();
+                        }
+                        else{
+                            AddMessage("Nothing to clear!");
+                        }
+                        
                     }} className="header_clear_button">
                         <NavLink to={{pathname: "/"}} style={{textDecoration: "none"}}>
                             <div className="header_clear_text">Clear username</div>

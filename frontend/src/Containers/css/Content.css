@@ -13,8 +13,9 @@
     height: 150px;
 }
 .content_warning{
-    width: 100%;
+    width: 20%;
     height: 100px;
+    margin: auto;
 }
 .content_input{
     width: 100%;

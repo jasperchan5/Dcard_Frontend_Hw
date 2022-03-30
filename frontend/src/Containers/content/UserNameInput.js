@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { UseRepoName, UseUserName } from "../../Hooks";
+import { UseRepoName, UseUserName, UseErrorMessage } from "../../Hooks";
 import Notification from '../Notification'; 
 import '../css/UserNameInput.css';
 import enter from '../elements/enter.png';
@@ -7,8 +7,7 @@ import enter from '../elements/enter.png';
 export default () => {
     const { AddUserName } = UseUserName();
     const { ClearRepoName } = UseRepoName();
-
-    const { showWarning } = Notification()
+    const { AddMessage } = UseErrorMessage();
     const [inputName,setInputName] = useState("");
     
     const nameInput = <>
@@ -24,7 +23,7 @@ export default () => {
                         inputName === "" ? 
                         <div className="input_box_button_img" onClick={
                             () => {
-                                showWarning();
+                                AddMessage("No username!");
                             }
                         }>
                             <img src={enter}></img>

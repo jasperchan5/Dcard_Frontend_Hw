@@ -2,14 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './Containers/App.js';
 import reportWebVitals from './reportWebVitals.js';
-import { UserNameProvider, RepoNameProvider, RepoCntProvider } from './Hooks'
+import { UserNameProvider, RepoNameProvider, RepoCntProvider, ErrorMessageProvider } from './Hooks'
 
 ReactDOM.render(
   <React.StrictMode>
     <UserNameProvider>
       <RepoNameProvider>
         <RepoCntProvider>
-          <App/>
+          <ErrorMessageProvider>
+            <App/>
+          </ErrorMessageProvider>
         </RepoCntProvider>
       </RepoNameProvider>
     </UserNameProvider>

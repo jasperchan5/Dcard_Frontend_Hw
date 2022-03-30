@@ -76,7 +76,6 @@ export default () => {
                     data.map((e,i) => {
                     return(
                         <div key={"repo "+i} className="repo_info" onClick={()=>{
-                            console.log("Current repo:",e[0]);
                             AddRepoName(e[0]);
                             }}>
                             <NavLink to={`/users/${userName}/repos/${e[0]}`} style={{textDecoration: 'none'}}>

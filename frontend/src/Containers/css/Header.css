@@ -31,6 +31,9 @@
     cursor: pointer;
     margin-top: 15px;
 }
+.header_clear_button:hover{
+    background-color: rgba(175, 202, 255, 0.644);
+}
 .header_userName_text, .header_userName_content{
     margin-top: 20px;
 }
