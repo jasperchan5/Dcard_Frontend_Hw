@@ -1,5 +1,6 @@
 import { Octokit } from "@octokit/core";
-import AUTH from "./token";
+
+const AUTH = process.env.AUTH;
 
 const octokit = new Octokit({
     auth: AUTH
