@@ -1,8 +1,7 @@
 {
   "scripts": {
     "start": "cd frontend && npm start",
-    "build": "cd frontend && npm install --only=dev && npm install && npm run build",
-    "node_start": "cd frontend && node index.js"
+    "build": "cd frontend && npm install --only=dev && npm install && npm run build"
   },
   "dependencies": {
     "curl": "^0.1.4",
