@@ -11,9 +11,7 @@
     "dotenv-defaults": "^3.0.0",
     "express": "^4.17.3",
     "node-fetch": "^3.2.3",
-    "nodemon": "^2.0.15"
-  },
-  "devDependencies": {
+    "nodemon": "^2.0.15",
     "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.0",
     "@babel/node": "^7.16.0",
