@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
+import http from "http";
 
 const app = express();
 
@@ -25,6 +26,11 @@ app.get("/*", function (req, res) {
 
 // define server
 const port = process.env.PORT || 5000;
-app.listen(port, ()=>{
-    console.log(`Server is up on port ${port}.`)
-})
+
+const httpServer = http.createServer(app);
+httpServer.listen(port, () => {
+  const DYNO_URL = "https://jasper-repo-viewer.herokuapp.com//";
+  wakeUpDyno(DYNO_URL);
+  console.log(`🚀 Server Ready at ${port}! 🚀`);
+  console.log(`Graphql Port at ${port}${server.subscriptionsPath}`);
+});
