@@ -21,27 +21,27 @@ function App() {
   const { repoName, AddRepoName } = UseRepoName();
   const { repoCnt, UpdateRepoCnt } = UseRepoCnt();
 
-  useEffect(() => {
-    const runApi = async() => {
-      const currUser = window.location.href.split("/")[4];
-      const currRepo = window.location.href.split("/")[6];
-      AddUserName(currUser);
-      AddRepoName(currRepo);
+  // useEffect(() => {
+  //   const runApi = async() => {
+  //     const currUser = window.location.href.split("/")[4];
+  //     const currRepo = window.location.href.split("/")[6];
+  //     AddUserName(currUser);
+  //     AddRepoName(currRepo);
 
-      const {
-        data: { repoList },
-      } = await instance.get('/getRepos', {
-        params: {
-          username: currUser
-        },
-      });
+  //     const {
+  //       data: { repoList },
+  //     } = await instance.get('/getRepos', {
+  //       params: {
+  //         username: currUser
+  //       },
+  //     });
 
-      if(repoCnt === 0 || repoCnt === null){
-          UpdateRepoCnt(repoList.data.length);
-      }
-    }
-    runApi();
-  }, [userName,repoName,repoCnt,AddRepoName,AddUserName,UpdateRepoCnt]);
+  //     if(repoCnt === 0 || repoCnt === null){
+  //         UpdateRepoCnt(repoList.data.length);
+  //     }
+  //   }
+  //   runApi();
+  // }, [userName,repoName,repoCnt,AddRepoName,AddUserName,UpdateRepoCnt]);
 
   return (
     <>
