@@ -3,7 +3,7 @@
     "start": "cd frontend && npm start",
     "build": "cd frontend && npm install --only=dev && npm install && npm run build",
     "server": "cd backend && yarn server",
-    "node_start": "cd backend && cd src && node main.js"
+    "node_start": "cd backend && yarn node_start"
   },
   "dependencies": {
     "curl": "^0.1.4",
