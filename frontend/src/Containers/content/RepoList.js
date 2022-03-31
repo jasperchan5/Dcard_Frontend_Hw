@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import '../css/RepoList.css';
 
 import { UseRepoName, UseUserName, UseRepoCnt } from "../../Hooks";
-import octokit from "../octokit";
+import instance from "../../axios";
 import error_404 from '../elements/error-404.png';
 import { NavLink } from "react-router-dom";
 
@@ -14,25 +14,34 @@ export default () => {
     const [data,setData] = useState([]);
 
     // Use useEffect() to load 10 more repos when userName or total number of repos changes.
-    useEffect(async() => {
-        let tempData = [];
-        try{
-            const repoList = await octokit.request(`GET /users/${userName}/repos?per_page=100`);
-            if(repoCnt === 0 || repoCnt === null){
-                UpdateRepoCnt(repoList.data.length);
-            }
-            repoList.data.forEach((e,i)=>{
-                if(i < dataCnt){
-                    tempData.push([e.name,e.stargazers_count]);
+    useEffect(() => {
+        const runApi = async() => {
+            let tempData = [];
+            try{
+                const {
+                    data: { repoList },
+                } = await instance.get('/getRepos', {
+                    params: {
+                    username: userName
+                    },
+                });
+                if(repoCnt === 0 || repoCnt === null){
+                    UpdateRepoCnt(repoList.data.length);
                 }
-            })
+                repoList.data.forEach((e,i)=>{
+                    if(i < dataCnt){
+                        tempData.push([e.name,e.stargazers_count]);
+                    }
+                })
+            }
+            catch(e){
+                UpdateRepoCnt(0);
+                tempData.push("Error");
+                tempData.push(e.toString());
+            }
+            setData(tempData);
         }
-        catch(e){
-            UpdateRepoCnt(0);
-            tempData.push("Error");
-            tempData.push(e.toString());
-        }
-        setData(tempData);
+        runApi();
     }, [userName,dataCnt]);
     
     // Add 10 new data when scrolling to the bottom

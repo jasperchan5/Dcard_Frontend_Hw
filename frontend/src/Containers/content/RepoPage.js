@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../css/RepoPage.css";
 import { UseRepoName, UseUserName } from "../../Hooks";
 import backArrow from '../elements/left-arrow.png';
-import octokit from "../octokit";
+import instance from "../../axios";
 
 export default () => {
     const [data,setData] = useState([]);
@@ -10,15 +10,25 @@ export default () => {
     const { userName } = UseUserName();
     const { repoName } = UseRepoName();
 
-    useEffect(async() => {
-        const repoInfo = await octokit.request(`GET /repos/${userName}/${repoName}`);
-        let name = repoInfo.data.full_name;
-        let description = repoInfo.data.description;
-        let stargazersCount = repoInfo.data.stargazers_count;
-        let hyperlink = `https://github.com/${name}`;
-        let tempData = [name,description,stargazersCount];
-        setData(tempData);
-        setLink(hyperlink);
+    useEffect(() => {
+        const runApi = async() => {
+            const {
+                data: { repoInfo },
+              } = await instance.get('/getSingleRepo', {
+                params: {
+                  username: userName,
+                  reponame: repoName
+                },
+              });
+            let name = repoInfo.data.full_name;
+            let description = repoInfo.data.description;
+            let stargazersCount = repoInfo.data.stargazers_count;
+            let hyperlink = `https://github.com/${name}`;
+            let tempData = [name,description,stargazersCount];
+            setData(tempData);
+            setLink(hyperlink);
+        }
+        runApi();
     }, []);
 
     return(

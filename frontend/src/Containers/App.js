@@ -4,7 +4,6 @@ import Footer from './footer/Footer.js';
 import RepoList from './content/RepoList';
 import RepoPage from './content/RepoPage.js';
 import MainPage from './content/MainPage.js';
-import octokit from './octokit.js';
 
 import './css/Content.css';
 import {
@@ -14,22 +13,35 @@ import {
 } from "react-router-dom";
 import { UseUserName, UseRepoName, UseRepoCnt } from '../Hooks';
 
+import instance from '../axios.js';
+
 function App() {
   // Get username and reponame from the url
   const { userName, AddUserName } = UseUserName();
   const { repoName, AddRepoName } = UseRepoName();
   const { repoCnt, UpdateRepoCnt } = UseRepoCnt();
 
-  useEffect(async() => {
-    const currUser = window.location.href.split("/")[4];
-    const currRepo = window.location.href.split("/")[6];
-    AddUserName(currUser);
-    AddRepoName(currRepo);
-    const repoList = await octokit.request(`GET /users/${currUser}/repos?per_page=100`);
-    if(repoCnt === 0 || repoCnt === null){
-        UpdateRepoCnt(repoList.data.length);
+  useEffect(() => {
+    const runApi = async() => {
+      const currUser = window.location.href.split("/")[4];
+      const currRepo = window.location.href.split("/")[6];
+      AddUserName(currUser);
+      AddRepoName(currRepo);
+
+      const {
+        data: { repoList },
+      } = await instance.get('/getRepos', {
+        params: {
+          username: currUser
+        },
+      });
+
+      if(repoCnt === 0 || repoCnt === null){
+          UpdateRepoCnt(repoList.data.length);
+      }
     }
-  }, [userName,repoName,repoCnt]);
+    runApi();
+  }, [userName,repoName,repoCnt,AddRepoName,AddUserName,UpdateRepoCnt]);
 
   return (
     <>
