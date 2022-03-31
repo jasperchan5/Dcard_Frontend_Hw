@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Hubballi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100&display=swap');
 .repo_title{
     font-size: 1cm;
     margin-top: 15px;
@@ -42,24 +43,26 @@
     cursor: pointer;
 }
 .repo_number{
-    font-size: 0.8cm;
+    font-size: 0.5cm;
     color: rgb(65, 65, 65);
     font-family: 'Hubballi', cursive;
     font-weight: 900;
 }
 .repo_name{
-    font-size: 0.8cm;
+    font-size: 0.5cm;
     color: rgb(65, 65, 65);
     margin-left: 10%;
+    margin-top: 2.5vh;
     font-weight: 900;
     font-family: 'Hubballi', cursive;
 }
 .repo_stargazers_count{
-    font-size: 0.8cm;
+    font-size: 0.75cm;
     color: rgb(65, 65, 65);
     font-weight: 900;
-    text-align: center;
-    font-family: 'Hubballi', cursive;
+    text-align: justify;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 2vh;
 }
 .repo_error_body{
     width: 100%;

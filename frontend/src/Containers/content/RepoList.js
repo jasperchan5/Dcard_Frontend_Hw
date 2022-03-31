@@ -4,6 +4,7 @@ import '../css/RepoList.css';
 import { UseRepoName, UseUserName, UseRepoCnt } from "../../Hooks";
 import instance from "../../axios";
 import error_404 from '../elements/error-404.png';
+import gold_star from'../elements/gold-star.png';
 import { NavLink } from "react-router-dom";
 
 const RepoList = () => {
@@ -108,7 +109,15 @@ const RepoList = () => {
                                     <div style={{display: "flex", width: "12.5%"}}>
                                         <div style={{display: "flex"}}>
                                             <div style={{display: "flex", width: "75%"}}>
-                                                <img src="https://img.icons8.com/windows/32/000000/star--v2.png"/>
+                                                <div style={{marginTop: "1.5vh"}}>
+                                                    {
+                                                        e[1] === 0 ?
+                                                        <img alt="star_count" src="https://img.icons8.com/windows/32/000000/star--v2.png"/>
+                                                        :
+                                                        <img style={{width: "32px", height: "32px"}} alt="star_count" src={gold_star}/>
+                                                    }
+                                                    
+                                                </div>
                                             </div>
                                             <div style={{display: "flex", width: "25%"}}>
                                                 <div className="repo_stargazers_count">
