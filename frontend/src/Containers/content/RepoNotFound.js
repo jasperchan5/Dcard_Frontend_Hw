@@ -1,5 +1,5 @@
 import '../css/Content.css';
-export default () => {
+const RepoNotFound = () => {
     return(
         <>
             <div style={{display: "inline", verticalAlign: "middle"}}>
@@ -7,9 +7,11 @@ export default () => {
                     Repositories not found. Please enter a valid username.
                 </div>
                 <div className="content_noData_image">
-                    <img src="https://img.icons8.com/windows/96/000000/no-data-availible.png"/>
+                    <img alt='not found' src="https://img.icons8.com/windows/96/000000/no-data-availible.png"/>
                 </div>
             </div>
         </>
     )
 }
+
+export default RepoNotFound;

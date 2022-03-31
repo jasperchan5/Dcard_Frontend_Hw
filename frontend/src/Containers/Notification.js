@@ -7,7 +7,7 @@ const Notification = () => {
         <div className='notification visible'>
             <div style={{width: "15%"}}>
                 <div className="notification_icon">
-                    <img src={warnIcon}></img>
+                    <img alt='warning' src={warnIcon}></img>
                 </div>
             </div>
             <div style={{width: "85%"}}>

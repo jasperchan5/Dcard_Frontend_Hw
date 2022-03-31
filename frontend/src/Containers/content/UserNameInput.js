@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { UseRepoName, UseUserName, UseErrorMessage } from "../../Hooks";
-import Notification from '../Notification'; 
 import '../css/UserNameInput.css';
 import enter from '../elements/enter.png';
 
-export default () => {
+const UserNameInput = () => {
     const { AddUserName } = UseUserName();
     const { ClearRepoName } = UseRepoName();
     const { AddMessage } = UseErrorMessage();
@@ -47,3 +46,5 @@ export default () => {
 
     return nameInput;
 }
+
+export default UserNameInput;

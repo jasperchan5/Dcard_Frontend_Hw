@@ -1,5 +1,5 @@
 import express from 'express'
-import octokit from './octokit';
+import octokit from './octokit.js';
 
 const router = express.Router();
 

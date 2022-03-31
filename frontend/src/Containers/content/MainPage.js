@@ -4,7 +4,7 @@ import Notification from '../Notification.js';
 import { UseErrorMessage } from '../../Hooks';
 import '../css/Content.css';
 
-export default () => {
+const MainPage = () => {
     const { warning } = Notification();
     const { messages } = UseErrorMessage();
 
@@ -33,3 +33,5 @@ export default () => {
         </>
     )
 }
+
+export default MainPage;

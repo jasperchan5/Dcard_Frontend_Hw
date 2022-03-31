@@ -6,7 +6,7 @@ import instance from "../../axios";
 import error_404 from '../elements/error-404.png';
 import { NavLink } from "react-router-dom";
 
-export default () => {
+const RepoList = () => {
     const { userName } = UseUserName();
     const { AddRepoName } = UseRepoName();
     const { repoCnt, UpdateRepoCnt } = UseRepoCnt();
@@ -123,3 +123,5 @@ export default () => {
     </>
     )
 }
+
+export default RepoList;

@@ -3,7 +3,7 @@ import '../css/Header.css'
 import { UseUserName, UseRepoCnt, UseRepoName, UseErrorMessage } from "../../Hooks";
 import { NavLink } from "react-router-dom";
 
-export default () => {
+const Header = () => {
     const { userName, ClearUserName } = UseUserName();
     const { repoName, ClearRepoName } = UseRepoName();
     const { repoCnt, UpdateRepoCnt } = UseRepoCnt();
@@ -40,3 +40,5 @@ export default () => {
         </>
     )
 }
+
+export default Header;

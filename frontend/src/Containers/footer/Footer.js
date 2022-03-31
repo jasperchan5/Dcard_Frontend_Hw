@@ -1,5 +1,5 @@
 import '../css/Footer.css';
-export default () => {
+const Footer = () => {
     return(
         <>
             <div className='footer_divide_line'></div>
@@ -9,3 +9,5 @@ export default () => {
         </>
     )
 }
+
+export default Footer;
