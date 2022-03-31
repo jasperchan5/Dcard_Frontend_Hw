@@ -2,8 +2,7 @@
   "scripts": {
     "start": "cd frontend && npm start",
     "build": "cd frontend && npm install --only=dev && npm install && npm run build",
-    "server": "cd backend && yarn server",
-    "node_start": "cd backend && yarn node_start"
+    "server": "cd backend && yarn server"
   },
   "dependencies": {
     "curl": "^0.1.4",
