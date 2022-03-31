@@ -24,6 +24,6 @@
     "mongoose": "^6.0.13"
   },
   "scripts": {
-    "server": "nodemon src/main.js --ext js --watch src --exec babel-node"
+    "server": "nodemon src/server.js --ext js --watch src --exec babel-node"
   }
 }
