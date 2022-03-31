@@ -5,12 +5,13 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "@octokit/core": "^3.5.1",
+    "body-parser": "^1.19.2",
     "cors": "^2.8.5",
     "dotenv-defaults": "^3.0.0",
-    "express": "^4.17.1",
-    "nodemon": "^2.0.15",
-    "@octokit/core": "^3.5.1"
+    "express": "^4.17.3",
+    "node-fetch": "^3.2.3",
+    "nodemon": "^2.0.15"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",
