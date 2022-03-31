@@ -12,34 +12,37 @@ const RepoList = () => {
     const { repoCnt, UpdateRepoCnt } = UseRepoCnt();
     const [dataCnt,setDataCnt] = useState(10);
     const [data,setData] = useState([]);
+    const [loadComplete,setLoadComplete] = useState(false);
 
     // Use useEffect() to load 10 more repos when userName or total number of repos changes.
     useEffect(() => {
         const runApi = async() => {
-            let tempData = [];
-            try{
-                const {
-                    data: { repoList },
-                } = await instance.get('/getRepos', {
-                    params: {
-                    username: userName
-                    },
-                });
-                if(repoCnt === 0 || repoCnt === null){
-                    UpdateRepoCnt(repoList.data.length);
-                }
-                repoList.data.forEach((e,i)=>{
-                    if(i < dataCnt){
-                        tempData.push([e.name,e.stargazers_count]);
+            if(!loadComplete){
+                let tempData = [];
+                try{
+                    const {
+                        data: { repoList },
+                    } = await instance.get('/getRepos', {
+                        params: {
+                        username: userName
+                        },
+                    });
+                    if(repoCnt === 0 || repoCnt === null){
+                        UpdateRepoCnt(repoList.data.length);
                     }
-                })
+                    repoList.data.forEach((e,i)=>{
+                        if(i < dataCnt){
+                            tempData.push([e.name,e.stargazers_count]);
+                        }
+                    })
+                }
+                catch(e){
+                    UpdateRepoCnt(0);
+                    tempData.push("Error");
+                    tempData.push(e.toString());
+                }
+                setData(tempData);
             }
-            catch(e){
-                UpdateRepoCnt(0);
-                tempData.push("Error");
-                tempData.push(e.toString());
-            }
-            setData(tempData);
         }
         runApi();
     }, [userName,dataCnt]);
@@ -56,6 +59,9 @@ const RepoList = () => {
 
         if (window.scrollY > Math.abs(document.body.offsetHeight - window.outerHeight) + 80) {
             setDataCnt(dataCnt+10);
+            if(dataCnt > repoCnt-10){
+                setLoadComplete(true);
+            }
         }
     }
 
