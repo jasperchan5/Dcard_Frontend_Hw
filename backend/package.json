@@ -20,8 +20,5 @@
     "@babel/plugin-transform-arrow-functions": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
     "mongoose": "^6.0.13"
-  },
-  "scripts": {
-    "server": "cd src&& node server.js"
   }
 }

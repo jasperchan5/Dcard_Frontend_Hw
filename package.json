@@ -2,19 +2,11 @@
   "scripts": {
     "start": "cd frontend && npm start",
     "build": "cd frontend && npm install --only=dev && npm install && npm run build",
-    "server": "cd backend && yarn server"
+    "server": "node server.js"
   },
   "dependencies": {
     "curl": "^0.1.4",
     "nodemon": "^2.0.15",
     "octonode": "^0.10.2"
-  },
-  "browser": {
-    "fs": false,
-    "path": false,
-    "os": false
-  },
-  "engines": {
-    "node": "14.15.4"
   }
 }

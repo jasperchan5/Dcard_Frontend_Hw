@@ -1,12 +1,12 @@
 import express from 'express';
 import cors from 'cors';
-import router from './router.js';
+import router from './backend/src/router.js';
 import bodyParser from 'body-parser';
 import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import http from "http";
-import wakeUpDyno from './wakeUpDyno.js';
+import wakeUpDyno from './backend/src/wakeUpDyno.js';
 
 const app = express();
 
@@ -15,6 +15,7 @@ app.use(cors());
 
 // define routes
 const __dirname = dirname(fileURLToPath(import.meta.url));
+console.log(__dirname);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/', router);
