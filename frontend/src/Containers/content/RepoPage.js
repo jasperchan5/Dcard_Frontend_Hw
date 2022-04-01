@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../css/RepoPage.css";
-import { UseRepoName, UseUserName } from "../../Hooks";
+import { UseRepoName, UseUserName } from "../../Hooks/index.js";
 import backArrow from '../elements/left-arrow.png';
 import instance from "../../axios";
 

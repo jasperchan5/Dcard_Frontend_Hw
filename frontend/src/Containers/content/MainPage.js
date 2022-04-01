@@ -1,7 +1,7 @@
-import UserNameInput from './UserNameInput';
-import RepoNotFound from './RepoNotFound';
+import UserNameInput from './UserNameInput.js';
+import RepoNotFound from './RepoNotFound.js';
 import Notification from '../Notification.js';
-import { UseErrorMessage } from '../../Hooks';
+import { UseErrorMessage } from '../../Hooks/index.js';
 import { useEffect } from 'react';
 import instance from '../../axios';
 import '../css/Content.css';

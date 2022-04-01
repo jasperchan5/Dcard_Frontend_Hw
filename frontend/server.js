@@ -5,8 +5,8 @@ import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import http from "http";
-import router from './backend/src/router.js';
-import wakeUpDyno from './backend/src/wakeUpDyno.js';
+import router from '../backend/src/router.js';
+import wakeUpDyno from '../backend/src/wakeUpDyno.js';
 
 const app = express();
 
@@ -15,7 +15,6 @@ app.use(cors());
 
 // define routes
 const __dirname = dirname(fileURLToPath(import.meta.url));
-console.log(__dirname);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/', router);
@@ -25,7 +24,6 @@ app.use(express.static(path.join(__dirname, "build")));
 app.get("/*", (_, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
-console.log(path.join(__dirname, "frontend", "build", "index.html"));
 
 // define server
 const port = process.env.PORT || 80;

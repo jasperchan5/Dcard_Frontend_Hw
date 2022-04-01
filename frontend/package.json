@@ -16,7 +16,13 @@
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
     "styled-components": "^5.3.3",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "body-parser": "^1.19.2",
+    "cors": "^2.8.5",
+    "curl": "^0.1.4",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.15",
+    "octonode": "^0.10.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,5 +47,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "jsx": "react-jsx"
 }

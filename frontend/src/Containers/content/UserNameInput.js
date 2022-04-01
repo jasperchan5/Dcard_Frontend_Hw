@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { UseRepoName, UseUserName, UseErrorMessage } from "../../Hooks";
+import { UseRepoName, UseUserName, UseErrorMessage } from "../../Hooks/index.js";
 import '../css/UserNameInput.css';
 import enter from '../elements/enter.png';
 

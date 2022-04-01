@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Header from './header/Header.js';
 import Footer from './footer/Footer.js';
-import RepoList from './content/RepoList';
+import RepoList from './content/RepoList.js';
 import RepoPage from './content/RepoPage.js';
 import MainPage from './content/MainPage.js';
 

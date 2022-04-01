@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import '../css/RepoList.css';
 
-import { UseRepoName, UseUserName, UseRepoCnt } from "../../Hooks";
+import { UseRepoName, UseUserName, UseRepoCnt } from "../../Hooks/index.js";
 import instance from "../../axios";
 import error_404 from '../elements/error-404.png';
 import gold_star from'../elements/gold-star.png';
