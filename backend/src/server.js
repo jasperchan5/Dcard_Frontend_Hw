@@ -20,10 +20,10 @@ app.use(bodyParser.json());
 app.use('/', router);
 app.use('/getRepos', router);
 app.use('/getSingleRepo', router);
-// app.use(express.static(path.join(__dirname, "build")));
-// app.get("*", (_, res) => {
-//   res.sendFile(path.join(__dirname, "build", "index.html"));
-// });
+app.use(express.static(path.join(__dirname, "build")));
+app.get("/*", (_, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 
 // define server
 const port = process.env.PORT || 5000;
