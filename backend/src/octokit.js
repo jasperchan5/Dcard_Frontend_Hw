@@ -1,4 +1,4 @@
-import { Octokit } from "../node_modules/@octokit/core";
+import { Octokit } from '@octokit/core';
 import dotenv from 'dotenv-defaults';
 dotenv.config();
 
