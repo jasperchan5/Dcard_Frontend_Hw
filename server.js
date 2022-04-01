@@ -27,7 +27,7 @@ app.get("/*", (_, res) => {
 });
 
 // define server
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 80;
 const httpServer = http.createServer(app);
 httpServer.listen(port, () => {
   const DYNO_URL = "https://jasper-repo-viewer.herokuapp.com";
