@@ -58,7 +58,7 @@ const RepoList = () => {
             header.classList = "header_body";
         }
         if (window.scrollY > Math.abs(document.body.offsetHeight - window.outerHeight) + 80) {
-            console.log(window.scrollY,document.body.offsetHeight,window.outerHeight);
+            // console.log(window.scrollY,document.body.offsetHeight,window.outerHeight);
             setDataCnt(dataCnt+10);
             if(dataCnt > repoCnt-10){
                 setLoadComplete(true);
