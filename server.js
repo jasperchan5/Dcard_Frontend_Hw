@@ -7,6 +7,7 @@ import { fileURLToPath } from "url";
 import http from "http";
 import router from './backend/src/router.js';
 import wakeUpDyno from './backend/src/wakeUpDyno.js';
+import dotenv from 'dotenv-defaults';
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.get("/*", (_, res) => {
 });
 console.log(path.join(__dirname, "frontend", "build", "index.html"));
 // define server
+dotenv.config();
 const port = process.env.PORT || 8080;
 const httpServer = http.createServer(app);
 httpServer.listen(port, () => {
