@@ -18,7 +18,6 @@ app.use(cors());
 const __dirname = dirname(fileURLToPath(import.meta.url));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use('/', router);
 app.use('/getRepos', router);
 app.use('/getSingleRepo', router);
 app.use(express.static(path.join(__dirname, "frontend", "build")));

@@ -5,10 +5,6 @@ const router = express.Router();
 
 dotenv.config();
 
-router.get('/', async(req,res) => {
-    res.status(200).send("Loaded")
-})
-
 router.get('/getRepos', async(req,res) => {
     const userName = req.query.username;
     console.log(`Fetching ${userName}'s repo list!`);
