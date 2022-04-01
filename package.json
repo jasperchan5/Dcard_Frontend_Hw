@@ -1,9 +1,9 @@
 {
   "type": "module",
   "scripts": {
-    "start": "cd frontend && node server.js",
     "build": "cd frontend && npm install --only=dev && npm install && yarn build",
-    "start_react": "cd frontend && yarn start"
+    "start_react": "cd frontend && yarn start",
+    "start": "node server.js"
   },
   "dependencies": {
     "body-parser": "^1.19.2",
