@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "license": "MIT",
-  "type": "module",
+  "type": "commonjs",
   "dependencies": {
     "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.0",
