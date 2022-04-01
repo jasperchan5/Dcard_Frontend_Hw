@@ -13,7 +13,6 @@ import {
 } from "react-router-dom";
 import { UseUserName, UseRepoName, UseRepoCnt } from '../Hooks';
 
-import instance from '../axios.js';
 
 function App() {
   // Get username and reponame from the url
