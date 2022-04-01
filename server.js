@@ -1,11 +1,11 @@
 import express from 'express';
 import cors from 'cors';
-import router from './backend/src/router.js';
 import bodyParser from 'body-parser';
 import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import http from "http";
+import router from './backend/src/router.js';
 import wakeUpDyno from './backend/src/wakeUpDyno.js';
 
 const app = express();
