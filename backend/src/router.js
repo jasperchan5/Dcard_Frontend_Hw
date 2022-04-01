@@ -14,7 +14,7 @@ router.get('/getRepos', async(req,res) => {
         res.status(200).send({repoList: repoList});
     }
     catch(e){
-        res.status(404).send(e);
+        res.status(404).send("Error getting repos");
     }
 })
 
@@ -26,7 +26,7 @@ router.get('/getSingleRepo', async(req,res) => {
         res.status(200).send({repoInfo: repoInfo});
     }
     catch(e){
-        res.status(404).send(e);
+        res.status(404).send("Error getting info");
     }
 })
 
