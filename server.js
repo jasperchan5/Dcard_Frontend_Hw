@@ -22,9 +22,9 @@ app.use(bodyParser.json());
 app.use('/', router);
 app.use('/getRepos', router);
 app.use('/getSingleRepo', router);
-app.use(express.static(path.join(__dirname, "build")));
+app.use(express.static(path.join(__dirname, "frontend", "build")));
 app.get("/*", (_, res) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
+  res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
 });
 console.log(path.join(__dirname, "frontend", "build", "index.html"));
 // define server
