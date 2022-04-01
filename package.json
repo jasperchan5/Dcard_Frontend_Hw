@@ -2,7 +2,8 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "build": "cd frontend && npm install --only=dev && npm install && yarn build"
+    "build": "cd frontend && npm install --only=dev && npm install && yarn build",
+    "frontend": "cd frontend && yarn start"
   },
   "dependencies": {
     "body-parser": "^1.19.2",
