@@ -11,7 +11,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.16.0",
     "@babel/plugin-transform-arrow-functions": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
-    "@octokit/core": "^3.5.1",
+    "@octokit/core": "^3.6.0",
     "body-parser": "^1.19.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
