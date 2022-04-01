@@ -14,7 +14,7 @@ export default () => {
         const runApi = async() => {
             const {
                 data: { repoInfo },
-              } = await instance.get('/getSingleRepo', {
+              } = await instance.get('/api/getSingleRepo', {
                 params: {
                   username: userName,
                   reponame: repoName

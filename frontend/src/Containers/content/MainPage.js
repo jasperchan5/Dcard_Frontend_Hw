@@ -2,12 +2,19 @@ import UserNameInput from './UserNameInput.js';
 import RepoNotFound from './RepoNotFound.js';
 import Notification from '../Notification.js';
 import { UseErrorMessage } from '../../Hooks/index.js';
+import { useEffect } from 'react';
+import instance from '../../axios';
 import '../css/Content.css';
 
 const MainPage = () => {
     const { warning } = Notification();
     const { messages } = UseErrorMessage();
-    
+    useEffect(() => {
+        const runApi = async() => {
+            await instance.get('/api/');
+        }
+        runApi();
+    }, []);
     return(
         <>
             <div style={{position: "absolute", width: "100%"}}>
