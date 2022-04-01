@@ -57,10 +57,9 @@
     font-family: 'Hubballi', cursive;
 }
 .repo_stargazers_count{
-    font-size: 0.75cm;
+    font-size: 0.5cm;
     color: rgb(65, 65, 65);
     font-weight: 900;
-    text-align: justify;
     font-family: 'Courier New', Courier, monospace;
     margin-top: 2vh;
 }

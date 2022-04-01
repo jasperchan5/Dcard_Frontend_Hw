@@ -46,7 +46,7 @@ const RepoList = () => {
             }
         }
         runApi();
-    }, [userName,dataCnt]);
+    }, [dataCnt]);
     
     // Add 10 new data when scrolling to the bottom
     window.onscroll = () => {
@@ -57,11 +57,14 @@ const RepoList = () => {
         else{
             header.classList = "header_body";
         }
-
         if (window.scrollY > Math.abs(document.body.offsetHeight - window.outerHeight) + 80) {
+            console.log(window.scrollY,document.body.offsetHeight,window.outerHeight);
             setDataCnt(dataCnt+10);
             if(dataCnt > repoCnt-10){
                 setLoadComplete(true);
+            }
+            if(!loadComplete){
+                window.scrollBy(0,-50);
             }
         }
     }
