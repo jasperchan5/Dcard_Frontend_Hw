@@ -4,12 +4,9 @@ import dotenv from 'dotenv-defaults';
 const router = express.Router();
 
 dotenv.config();
-const ID = process.env.ID, SECRET = process.env.SECRET;
 
 router.get('/', async(req,res) => {
-    const status = await octokit.request(`GET /rate_limit`,{headers: ""});
-    const data = status.data.rate
-    console.log(data);
+    res.status(200).send("Loaded")
 })
 
 router.get('/getRepos', async(req,res) => {
