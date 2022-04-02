@@ -9,7 +9,7 @@ router.get('/', async(req,res) => {
     // const status = await octokit.request(`GET /rate_limit`,{headers: ""});
     // const data = status.data.rate
     // console.log(data);
-    console.log("Welcome to the main page!");
+    // console.log("Welcome to the main page!");
 })
 
 router.get('/api/getRepos', async(req,res) => {
