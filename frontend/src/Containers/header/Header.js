@@ -31,9 +31,7 @@ const Header = () => {
                             AddMessage("Nothing to clear!");
                         }
                     }} className="header_clear_button">
-                        <NavLink to={{pathname: "/"}} style={{textDecoration: "none"}}>
-                            <div className="header_clear_text">Clear username</div>
-                        </NavLink>
+                        <div className="header_clear_text">Clear username</div>
                     </div>
                 </div>
             </div>
