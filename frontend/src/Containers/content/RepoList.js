@@ -23,7 +23,7 @@ const RepoList = () => {
                 try{
                     const {
                         data: { repoList },
-                    } = await instance.get('/api/getRepos', {
+                    } = await instance.get('/backend/getRepos', {
                         params: {
                         username: userName
                         },

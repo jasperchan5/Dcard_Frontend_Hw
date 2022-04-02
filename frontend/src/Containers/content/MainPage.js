@@ -11,7 +11,7 @@ const MainPage = () => {
     const { messages } = UseErrorMessage();
     useEffect(() => {
         const runApi = async() => {
-            await instance.get('/api');
+            await instance.get('/backend');
         }
         runApi();
     }, []);

@@ -5,15 +5,13 @@ const router = express.Router();
 
 dotenv.config();
 
-router.get('/api', async(req,res) => {
-    const userName = "mars";
-    console.log(`Fetching ${userName}'s repo list!`);
-    const repoList = await octokit.request(`GET /users/${userName}/repos?per_page=100`);
-    console.log("Repo count:",repoList.data.length);
-    res.status(200).send({repoList: repoList});
+router.get('/', async(req,res) => {
+    const rate_limit = await octokit.request(`GET /rate_limit`);
+    console.log(rate_limit.data);
+    res.status(200).send("Welcome to backend!");
 })
 
-router.get('/api/getRepos', async(req,res) => {
+router.get('/getRepos', async(req,res) => {
     const userName = req.query.username;
     console.log(`Fetching ${userName}'s repo list!`);
     const repoList = await octokit.request(`GET /users/${userName}/repos?per_page=100`);
@@ -21,7 +19,7 @@ router.get('/api/getRepos', async(req,res) => {
     res.status(200).send({repoList: repoList});
 })
 
-router.get('/api/getSingleRepo', async(req,res) => {
+router.get('/getSingleRepo', async(req,res) => {
     const userName = req.query.username, repoName = req.query.reponame;
     console.log(`Fetching information of ${userName}'s repo ${repoName}!`);
     const repoInfo = await octokit.request(`GET /repos/${userName}/${repoName}`);

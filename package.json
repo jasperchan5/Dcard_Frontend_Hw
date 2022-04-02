@@ -3,7 +3,8 @@
   "scripts": {
     "start": "node server.js",
     "build": "cd frontend && npm install --only=dev && npm install && yarn build",
-    "frontend": "cd frontend && yarn start"
+    "frontend": "cd frontend && yarn start",
+    "backend": "node localhost_server.js"
   },
   "dependencies": {
     "body-parser": "^1.19.2",
