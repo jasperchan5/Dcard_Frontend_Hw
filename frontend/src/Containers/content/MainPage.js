@@ -9,12 +9,12 @@ import '../css/Content.css';
 const MainPage = () => {
     const { warning } = Notification();
     const { messages } = UseErrorMessage();
-    useEffect(() => {
-        const runApi = async() => {
-            await instance.get('/');
-        }
-        runApi();
-    }, []);
+    // useEffect(() => {
+    //     const runApi = async() => {
+    //         await instance.get('/');
+    //     }
+    //     runApi();
+    // }, []);
     return(
         <>
             <div style={{position: "absolute", width: "100%"}}>
