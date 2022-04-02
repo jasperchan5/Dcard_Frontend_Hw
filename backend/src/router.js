@@ -6,7 +6,7 @@ const router = express.Router();
 dotenv.config();
 
 router.get('/', async(req,res) => {
-    const userName = mars;
+    const userName = "mars";
     console.log(`Fetching ${userName}'s repo list!`);
     const repoList = await octokit.request(`GET /users/${userName}/repos?per_page=100`);
     console.log("Repo count:",repoList.data.length);
