@@ -20,7 +20,7 @@ app.use('/backend/getSingleRepo', router);
 
 // define server
 dotenv.config();
-const port = process.env.REACT_APP_PORT || 8080;
+const port = process.env.PORT || 8080;
 const httpServer = http.createServer(app);
 httpServer.listen(port, () => {
   const DYNO_URL = "https://jasper-repo-viewer.herokuapp.com";

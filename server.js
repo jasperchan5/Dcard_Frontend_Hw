@@ -28,9 +28,10 @@ app.get("/*", (_, res) => {
 
 // define server
 dotenv.config();
-const port = process.env.REACT_APP_PORT || 8080;
+const port = process.env.PORT || 8080;
+const address = '0.0.0.0'
 const httpServer = http.createServer(app);
-httpServer.listen(port, () => {
+httpServer.listen(port, address, () => {
   const DYNO_URL = "https://jasper-repo-viewer.herokuapp.com";
   wakeUpDyno(DYNO_URL);
   console.log(`🚀 Server Ready at ${port}! 🚀`);
