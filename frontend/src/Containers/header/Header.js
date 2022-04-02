@@ -25,11 +25,11 @@ const Header = () => {
                             ClearRepoName();
                             UpdateRepoCnt(0);
                             localStorage.clear();
+                            window.location.href = "/";
                         }
                         else{
                             AddMessage("Nothing to clear!");
                         }
-                        
                     }} className="header_clear_button">
                         <NavLink to={{pathname: "/"}} style={{textDecoration: "none"}}>
                             <div className="header_clear_text">Clear username</div>

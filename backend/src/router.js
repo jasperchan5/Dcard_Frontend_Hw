@@ -5,7 +5,7 @@ const router = express.Router();
 
 dotenv.config();
 
-router.get('/api/', async(req,res) => {
+router.get('/', async(req,res) => {
     const status = await octokit.request(`GET /rate_limit`,{headers: ""});
     const data = status.data.rate
     console.log(data);
