@@ -12,8 +12,8 @@
     margin-top: 100px;
     height: 150px;
 }
-.content_warning{
-    width: 20%;
+.content_notification{
+    width: 30%;
     height: 100px;
     margin: auto;
 }
@@ -22,17 +22,13 @@
     height: 100px;
 }
 .content_noData{
-    font-size: 0.8cm;
+    font-size: 1.2cm;
+    color: rgb(65, 65, 65);
+    font-family: 'Hubballi', cursive;
     margin: auto;
     text-align: center;
-    font-family: 'Hubballi', cursive;
-    font-weight: 900;
-}
-.content_noData_image{
-    width: 64px;
-    height: 64px;
-    margin: auto;
-    margin-top: 15px;
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
 @keyframes InfoFadeInAnimation {
     0% {

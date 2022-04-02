@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../css/RepoPage.css";
 import { UseRepoName, UseUserName } from "../../Hooks/index.js";
 import backArrow from '../elements/left-arrow.png';
+import gold_star from '../elements/gold-star.png';
 import instance from "../../axios";
 
 export default () => {
@@ -44,7 +45,10 @@ export default () => {
                     <div style={{width: "12.5%", display: "flex"}}>
                         <div style={{display: "flex"}}>
                             <div style={{display: "flex", width: "75%"}}>
-                                <img src="https://img.icons8.com/windows/32/000000/star--v2.png"/>
+                                {
+                                    data[2] === 0 ? <img src="https://img.icons8.com/windows/32/000000/star--v2.png"/> 
+                                                  : <img style={{width: "32px", height: "32px"}} src={gold_star}></img>
+                                }
                             </div>
                             <div style={{display: "flex", width: "25%"}}>
                                 <div className="repo_page_stargazers_count">

@@ -56,6 +56,13 @@
     font-weight: 900;
     font-family: 'Hubballi', cursive;
 }
+.repo_star{
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
 .repo_stargazers_count{
     font-size: 0.5cm;
     color: rgb(65, 65, 65);
@@ -80,6 +87,8 @@
     width: 128px;
     height: 128px;
     margin: auto;
+    top: 0;
+    bottom: 0;
 }
 
 @keyframes InfoFadeInAnimation{

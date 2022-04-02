@@ -30,13 +30,11 @@
     margin: auto;
     cursor: pointer;
     margin-top: 15px;
+    background: rgba(214, 230, 255, 0.644);
 }
 .header_clear_button:hover{
-    background-color: rgba(175, 202, 255, 0.644);
+    background-color: rgba(152, 187, 255, 0.644);
 }
 .header_userName_text, .header_userName_content{
     margin-top: 20px;
-}
-.header_clear_text{
-    margin-top: 10px;
 }

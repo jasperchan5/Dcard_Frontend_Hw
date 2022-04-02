@@ -12,7 +12,7 @@ const UserNameInput = () => {
     const nameInput = <>
         <div>
             <div style={{display: "flex"}}>
-                <input className="input_box_inner" value={inputName} onChange={(e)=>setInputName(e.target.value)} onKeyUp={(e)=>{
+                <input className="input_box_inner" placeholder="Enter an username..." value={inputName} onChange={(e)=>setInputName(e.target.value)} onKeyUp={(e)=>{
                     if(e.key === 'Enter'){
                         document.getElementsByClassName("input_box_button_img")[0].click();
                     }

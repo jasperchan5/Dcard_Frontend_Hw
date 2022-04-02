@@ -14,9 +14,15 @@ router.get('/', async(req,res) => {
 router.get('/getRepos', async(req,res) => {
     const userName = req.query.username;
     console.log(`Fetching ${userName}'s repo list!`);
-    const repoList = await octokit.request(`GET /users/${userName}/repos?per_page=100`);
-    console.log("Repo count:",repoList.data.length);
-    res.status(200).send({repoList: repoList});
+    try{
+        const repoList = await octokit.request(`GET /users/${userName}/repos?per_page=100`);
+        console.log("Repo count:",repoList.data.length);
+        res.status(200).send({repoList: repoList});
+    }
+    catch(e){
+        console.log("Error");
+        res.status(404).send("Not found");
+    }
 })
 
 router.get('/getSingleRepo', async(req,res) => {

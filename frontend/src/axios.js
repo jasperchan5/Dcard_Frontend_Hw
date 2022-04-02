@@ -1,6 +1,7 @@
+/* global __DEV__ */
 import axios from 'axios';
-const baseURL = 'https://jasper-repo-viewer.herokuapp.com';
-console.log(baseURL);
+const baseURL = 'http://localhost:8080';
+
 const instance = axios.create({
   baseURL: baseURL
 });

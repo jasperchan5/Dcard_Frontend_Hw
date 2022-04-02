@@ -1,12 +1,11 @@
 import React from "react";
 import '../css/Header.css'
 import { UseUserName, UseRepoCnt, UseRepoName, UseErrorMessage } from "../../Hooks";
-import { NavLink } from "react-router-dom";
 
 const Header = () => {
     const { userName, ClearUserName } = UseUserName();
     const { repoName, ClearRepoName } = UseRepoName();
-    const { repoCnt, UpdateRepoCnt } = UseRepoCnt();
+    const { repoCnt, ClearRepoCnt } = UseRepoCnt();
     const { AddMessage } = UseErrorMessage();
     return(
         <>
@@ -19,20 +18,21 @@ const Header = () => {
                 </div>
                 <div style={{width: "25%"}}></div>
                 <div style={{width: "25%"}}>
-                    <div onClick={() => {
-                        if(userName !== "" && repoName !== "" && repoCnt !== 0){
-                            ClearUserName();
-                            ClearRepoName();
-                            UpdateRepoCnt(0);
-                            localStorage.clear();
-                            window.location.href = "/";
+                    <button onClick={() => {
+                        if(window.location.pathname === '/'){
+                            // console.log("Nothing to clear");
+                            AddMessage("Already in the main page!");
                         }
                         else{
-                            AddMessage("Nothing to clear!");
+                            // console.log("Back to the biginning");
+                            ClearUserName();
+                            ClearRepoName();
+                            ClearRepoCnt();
+                            window.location.href = "/";
                         }
                     }} className="header_clear_button">
-                        <div className="header_clear_text">Clear username</div>
-                    </div>
+                        <div className="header_clear_text">Go back</div>
+                    </button>
                 </div>
             </div>
         </>

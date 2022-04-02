@@ -11,7 +11,12 @@
 }
 .notification_icon{
     height: 5vh;
-    margin-top: 1.5vh;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
 }
 .notification_text{
     text-align: center;

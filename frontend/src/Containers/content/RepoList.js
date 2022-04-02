@@ -6,6 +6,7 @@ import instance from "../../axios";
 import error_404 from '../elements/error-404.png';
 import gold_star from'../elements/gold-star.png';
 import { NavLink } from "react-router-dom";
+import RepoNotFound from "./RepoNotFound";
 
 const RepoList = () => {
     const { userName } = UseUserName();
@@ -84,57 +85,61 @@ const RepoList = () => {
             <div className="repo_divide_line"></div>
             <div style={{width: "100%", height: `${window.innerHeight}`}}>
                 {
-                    data[0] === "Error" ? 
-                    <div className="repo_error_body">
-                        <div className="repo_error_text">{data[1]}</div>
-                        <div className="repo_error_img">
-                            <img src={error_404}></img>
-                        </div>
-                    </div>
-                    :
-                    data.map((e,i) => {
-                    return(
-                        <div key={"repo "+i} className="repo_info" onClick={()=>{
-                            AddRepoName(e[0]);
-                            }}>
-                            <NavLink to={`/users/${userName}/repos/${e[0]}`} style={{textDecoration: 'none'}}>
-                                <div style={{display: "flex"}}>
-                                    <div style={{display: "flex", width: "12.5%"}}>
-                                        <div className="repo_number">
-                                            {i+1}
-                                        </div>
-                                    </div>
-                                    <div style={{display: "flex", width: "75%"}}>
-                                        <div className="repo_name">
-                                            {e[0]} 
-                                        </div>
-                                    </div>
-                                    <div style={{display: "flex", width: "12.5%"}}>
-                                        <div style={{display: "flex"}}>
-                                            <div style={{display: "flex", width: "75%"}}>
-                                                <div style={{marginTop: "1.5vh"}}>
-                                                    {
-                                                        e[1] === 0 ?
-                                                        <img alt="star_count" src="https://img.icons8.com/windows/32/000000/star--v2.png"/>
-                                                        :
-                                                        <img style={{width: "32px", height: "32px"}} alt="star_count" src={gold_star}/>
-                                                    }
-                                                    
-                                                </div>
-                                            </div>
-                                            <div style={{display: "flex", width: "25%"}}>
-                                                <div className="repo_stargazers_count">
-                                                    {e[1]}
-                                                </div>
+                    data.length === 0 ? 
+                        <div style={{height: "200px"}}>
+                            <RepoNotFound></RepoNotFound>
+                        </div> 
+                    : 
+                        data[0] === "Error" ? 
+                        <div className="repo_error_body">
+                            <div className="repo_error_text">{data[1]}</div>
+                            <div className="repo_error_img">
+                                <img src={error_404}></img>
+                            </div>
+                        </div> :
+                        data.map((e,i) => {
+                        return(
+                            <div key={"repo "+i} className="repo_info" onClick={()=>{
+                                AddRepoName(e[0]);
+                                }}>
+                                <NavLink to={`/users/${userName}/repos/${e[0]}`} style={{textDecoration: 'none'}}>
+                                    <div style={{display: "flex"}}>
+                                        <div style={{display: "flex", width: "12.5%"}}>
+                                            <div className="repo_number">
+                                                {i+1}
                                             </div>
                                         </div>
+                                        <div style={{display: "flex", width: "75%"}}>
+                                            <div className="repo_name">
+                                                {e[0]} 
+                                            </div>
+                                        </div>
+                                        <div style={{display: "flex", width: "12.5%"}}>
+                                            <div style={{display: "flex"}}>
+                                                <div style={{display: "flex", width: "75%"}}>
+                                                    <div style={{marginTop: "1.5vh"}}>
+                                                        {
+                                                            e[1] === 0 ?
+                                                            <img className="repo_star" alt="star_count" src="https://img.icons8.com/windows/32/000000/star--v2.png"/>
+                                                            :
+                                                            <img className="repo_star" style={{width: "32px", height: "32px"}} alt="star_count" src={gold_star}/>
+                                                        }
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div style={{display: "flex", width: "25%"}}>
+                                                    <div className="repo_stargazers_count">
+                                                        {e[1]}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </NavLink>
-                        </div>
-                    )
-                }    
-                )}
+                                </NavLink>
+                            </div>
+                            )
+                        }    
+                    )}
             </div>
         </>
         }

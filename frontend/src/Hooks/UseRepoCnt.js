@@ -1,7 +1,8 @@
 import React, { useContext, useState, useEffect } from "react"
 const RepoCntContext = React.createContext({
     repoCnt: 0,
-    UpdateRepoCnt: () => {}
+    UpdateRepoCnt: () => {},
+    ClearRepoCnt: () => {}
 });
 
 const RepoCntProvider = (props) => {
@@ -16,10 +17,16 @@ const RepoCntProvider = (props) => {
         localStorage.setItem("repoCnt",input);
     }
 
+    const ClearRepoCnt = () => {
+        setRepoCnt(0);
+        localStorage.removeItem("repoCnt");
+    }
+
     return(
         <RepoCntContext.Provider value={{
             repoCnt,
-            UpdateRepoCnt
+            UpdateRepoCnt,
+            ClearRepoCnt
         }} {...props}></RepoCntContext.Provider>
     )
 }
