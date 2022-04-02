@@ -10,6 +10,7 @@ const MainPage = () => {
     const { warning } = Notification();
     const { messages } = UseErrorMessage();
     useEffect(() => {
+        localStorage.clear();
         const runApi = async() => {
             await instance.get('/backend');
         }
