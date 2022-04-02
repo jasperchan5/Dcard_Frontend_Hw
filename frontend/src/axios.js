@@ -1,5 +1,5 @@
 import axios from 'axios';
-const baseURL = 'https://0.0.0.0:8080';
+const baseURL = 'https://jasper-repo-viewer';
 console.log(baseURL);
 const instance = axios.create({
   baseURL: baseURL
