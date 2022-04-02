@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "start": "node server.js -p $REACT_APP_PORT",
+    "start": "node server.js",
     "build": "cd frontend && npm install --only=dev && npm install && yarn build",
     "frontend": "cd frontend && yarn start",
     "backend": "node localhost_server.js"

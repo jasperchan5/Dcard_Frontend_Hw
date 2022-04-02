@@ -34,5 +34,5 @@ const httpServer = http.createServer(app);
 httpServer.listen(port, address, () => {
   const DYNO_URL = "https://jasper-repo-viewer.herokuapp.com";
   wakeUpDyno(DYNO_URL);
-  console.log(`🚀 Server Ready at ${port}! 🚀`);
+  console.log(`🚀 Server Ready at ${address}:${port}! 🚀`);
 });
