@@ -1,6 +1,7 @@
 # Dcard_Frontend_Hw
 - 使用方法：
-  - git clone https://github.com/jasperchan5/Dcard_Frontend_Hw，並進入終端機，輸入 cd Dcard_Frontend_Hw。
+  - git clone https://github.com/jasperchan5/Dcard_Frontend_Hw ，並進入終端機，輸入 cd Dcard_Frontend_Hw。
+  - git branch 確認自己在 main branch 上，若不是，輸入 git switch main。
   - 在這個終端機輸入 yarn frontend 以啟動前端，開啟另一終端機並輸入 cd Dcard_Frontend_Hw ，輸入 yarn backend 以啟動後端。
   - 一開始會進入主頁面，下方可以輸入 username，按 enter 鍵或是右方箭頭按鈕即可進入下一頁。
   - 當 username 這個 hook 被更新時，就會發送 API 請求，獲取此 username 的所有 repo。
@@ -10,8 +11,7 @@
 
 - 主要運用之技術
   - Frontend：React.js, hook, context, react-router
-  - Middleware：axios
-  - Backend：node.js, express, cors, babel
+  - Middleware / Backend：axios, node.js, express, cors, babel
 
 - 網頁架構：
   - Frontend
@@ -30,7 +30,7 @@
         - route："/users/${username}/repos/${reponame}"
         - 單一 repo 頁面。
       - Notification.js：
-        - 異常狀態（No username...）提醒。
+        - 異常狀態（No username, Already in the main page...）提醒。
       - RepoNotFound.js：
         - 初始頁面上的文字及圖示。
       - UserNameInput.js：
